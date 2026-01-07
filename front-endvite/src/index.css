@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .shop-btn{
+        @apply bg-black text-white px-5 py-2 rounded-[2rem] hover:bg-gray-500   ;
+    }
+    .shop-btn-white{
+        @apply bg-white  px-5 py-2 rounded-[2rem] hover:bg-gray-300   ; 
+    }
+    .text-bolder{
+        @apply uppercase text-[11vw] font-black font-Oswald leading-[1] tracking-tighter; 
+
+    }
+    .text-bolder-md{
+        @apply uppercase text-[4vw] font-black font-Oswald leading-[1] tracking-tighter; 
+    }
+}
