@@ -33,14 +33,14 @@ A full-stack Nike e-commerce clone built using the **MERN stack**, focusing on m
 ---
 
 ## 📁 Project Structure
-📦back-end
-┣ 📜 ...server code
-📦front-end
-┣ 📜 ...React UI code
-📄Products.json
-📄Categories.json
-📄Sizes.json
-📄Colors.json
+ 📦back-end
+ ┣ 📜 ...server code 
+ 📦front-end
+ ┣ 📜 ...React UI code
+ 📄Products.json
+ 📄Categories.json
+ 📄Sizes.json
+ 📄Colors.json
 
 
 Data JSON files contain product & attribute details used on the frontend. :contentReference[oaicite:4]{index=4}
@@ -84,6 +84,7 @@ Create a .env file with:
 PORT=<port>
 MONGO_URI=<your_mongo_connection_string>
 
+### 🟢 end Frontend Setup
 cd front-end
 npm install
 npm run dev
