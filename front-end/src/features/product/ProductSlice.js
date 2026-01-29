@@ -1,22 +1,29 @@
 // front-endvite/src/features/product/ProductSlice.js
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchCategory, fetchColors, fetchProduct, fetchSizes } from "./ProductApi";
+import { createProduct, fetchCategory, fetchColors, fetchProduct, fetchSizes } from "./ProductApi";
 
 const initialState = {
   products: [],
   colors:[],
-  categories:[],
+  category:[],
   sizes:[],
   status: "idle",
 };
 
 export const fetchProductAsync = createAsyncThunk(
   "product/fetchProduct",
-  async () => {
-    const response = await fetchProduct();
+  async ({sort,filters}) => {
+    const response = await fetchProduct(sort,filters);
     return response;
   }
 );
+export const createProductAsync = createAsyncThunk(
+  'product/createProduct',
+  async (product)=>{
+    const response = await createProduct(product);
+    return response;
+  }
+)
 export const fetchColorsAsync = createAsyncThunk(
   'product/fetchColors',
   async ()=>{
@@ -63,7 +70,7 @@ export const productSlice = createSlice({
       })
       .addCase(fetchCategoryAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.categories = action.payload
+        state.category = action.payload
       })
       .addCase(fetchSizeAsync.pending, (state) => {
         state.status = "loading";
@@ -77,7 +84,7 @@ export const productSlice = createSlice({
  
 export const selectProducts = (state) => state.product.products;
 export const selectColors = (state)=>state.product.colors;
-export const selectCategory = (state) => state.product.categories;
+export const selectCategory = (state) => state.product.category;
 export const selectSize= (state)=>state.product.sizes;
 export const selectStatus = (state) => state.product.status;
 

@@ -78,10 +78,10 @@ function Navbar() {
 
  
  
-  return (
-    <nav className="sticky w-full z-50  bg-white ">
+  return (  
+      <> 
       {/* first Part */} 
-      <div className="svgdiv  hidden md:flex w-full  justify-between  bg-gray-100 px-5 py-1 md:px-12 align-center">
+      <div className="svgdiv z-50 hidden md:flex w-full  justify-between  bg-gray-100 px-5 py-1 md:px-12 align-center">
         <div className=''>
           <a href=''>
             <svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
@@ -142,13 +142,17 @@ function Navbar() {
           </div>
         </ul>
       </div>
-      {/* Second Part */}
-      <div className='second bg-transparent px-5  md:px-12 flex justify-between items-center py-2 relative'>
+
+
+ <nav className="sticky top-0   z-50   w-full    bg-white    shadow-sm">
+      {/* Second Part */} 
+        <div className="second bg-white px-5 md:px-12 flex justify-between items-center py-2">
+
         <div className="nikelogo">
           <a> <img src={nikeLogo} alt=""  className="bg-transparent w-10" /> </a>
         </div>
         <div className="desktop-features my-4 ">
-          <ul className="hidden md:flex space-x-4 relative ">
+          <ul className="hidden md:flex space-x-5 relative ">
             {
               features && features.map((item, idx) => (
                 <li className={` `} key={idx} 
@@ -205,7 +209,8 @@ function Navbar() {
             <Slidebar openSlidebar={openSlidebar} seOpenSlidebar={setOpenSlidebar} features={features} />
           </div>
       </div>
-    </nav>
+      </nav> 
+</>
   );
 }
 
