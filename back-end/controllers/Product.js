@@ -51,6 +51,18 @@ if(req.query._sort && req.query._order){
     }
 }
 
+const fetchProductById = async(req,res)=>{
+    try{
+        const product = await Product.findById(req.params.id).exec()
+        if(!product)
+            return res.status(404).json({msg:"No product found"});
+        return res.status(200).json(product)
+    }catch(err){
+        return res.status(500).send(err)
+    }
+}
+
+
 const updateProductById = async (req, res) => {
     try {
         const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true , runValidators: true })
@@ -73,5 +85,4 @@ const deleteProductById = async (req,res)=>{
     }
 }
 
-module.exports = { createProduct, fetchProducts, updateProductById,deleteProductById }
-
+module.exports = { createProduct, fetchProducts, updateProductById,deleteProductById,fetchProductById }

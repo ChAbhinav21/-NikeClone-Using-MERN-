@@ -25,6 +25,15 @@ export async function fetchProduct(sort,filters) {
   return data; // ARRAY of products
 }
 
+
+
+export async function fetchProductById(id) {
+  
+  const response = await fetch(`http://localhost:8080/products/${id}`);
+  const data = await response.json()
+  return data;
+}
+
 export async function fetchColors() {
   const response = await fetch('http://localhost:8080/colors/')
   const data = await response.json();

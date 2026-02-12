@@ -111,7 +111,7 @@ function Navbar() {
 
                 {/* DROPDOWN */}
                 {item.dropdown && activeMenu === item.id && (
-                  <div className="absolute right-0 top-full z-50 pt-3">
+                  <div className="absolute right-0 top-3  z-50 pt-3">
                     <div className="w-52 bg-white rounded-md shadow-lg">
                       <ul className="flex flex-col px-4 py-4 space-y-2">
                         <h1 className="text-sm font-semibold mb-1 capitalize">
@@ -144,7 +144,7 @@ function Navbar() {
       </div>
 
 
- <nav className="sticky top-0   z-50   w-full    bg-white    shadow-sm">
+ <nav className="sticky top-0   z-40   w-full    bg-white    shadow-sm">
       {/* Second Part */} 
         <div className="second bg-white px-5 md:px-12 flex justify-between items-center py-2">
 

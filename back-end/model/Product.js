@@ -13,7 +13,7 @@ const ProductSchema = new Schema({
     stock: { type: Number, min: 0, default: 0 },
     rating: { type: Number, min: 0, max: 5 },
     origin: { type: String, required: true },
-    description: { type: String, required: true },
+    description: { type: String  },
     marketedBy: { type: String, required: true },
     images: { type: [String], required: true },
     highlights: { type: [String], required: true },

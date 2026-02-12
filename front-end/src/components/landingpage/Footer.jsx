@@ -48,7 +48,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white px-5 md:px-12">
+    <footer className="bg-black   text-white px-5 md:px-12">
       {/* Top Section */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 py-8">
 
@@ -74,8 +74,8 @@ function Footer() {
 
   <ul className={`space-y-1 ${openHelp ? "block" : "hidden"} md:block`}>
     {getHelp.map((item, idx) => (
-      <li key={idx} className="text-gray-400 hover:text-white">
-        <a href="#">{item}</a>
+      <li key={idx} className="text-gray-400 ">
+        <a href="#" className="hover:text-white">{item}</a>
       </li>
     ))}
   </ul>
@@ -94,8 +94,8 @@ function Footer() {
 
   <ul className={`space-y-1 ${openAboutNike ? "block" : "hidden"} md:block`}>
     {aboutNike.map((item, idx) => (
-      <li key={idx} className="text-gray-400 hover:text-white"> 
-        <a href="#">{item}</a>
+      <li key={idx} className="text-gray-400 "> 
+        <a href="#"  className="hover:text-white">{item}</a>
       </li>
     ))}
   </ul>
@@ -105,8 +105,8 @@ function Footer() {
         {/* Social Icons */}
         <div className="flex space-x-4 text-2xl">
           {socialLinks.map(({ icon: Icon, link }, idx) => (
-            <a key={idx} href={link} className="text-gray-400 hover:text-white">
-              <Icon />
+            <a key={idx} href={link} className="text-gray-400 inline-block">
+              <Icon className="hover:text-white"/>
             </a>
           ))}
         </div>
@@ -130,7 +130,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
 export default Footer;
