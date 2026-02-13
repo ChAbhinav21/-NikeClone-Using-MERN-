@@ -7,6 +7,7 @@ import heartIcon from '../assets/outline-heart.png'
 import hamburger from '../assets/hamburger.png'
 import Slidebar from "./Slidebar";
 import FeaturesDropdown from "./FeaturesDropdown";
+import {Link} from 'react-router-dom'
 function Navbar() {
   const [isUser, setIsUser] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -147,10 +148,11 @@ function Navbar() {
  <nav className="sticky top-0   z-40   w-full    bg-white    shadow-sm">
       {/* Second Part */} 
         <div className="second bg-white px-5 md:px-12 flex justify-between items-center py-2">
-
+        <Link to={`/home`}>
         <div className="nikelogo">
           <a> <img src={nikeLogo} alt=""  className="bg-transparent w-10" /> </a>
         </div>
+         </Link>
         <div className="desktop-features my-4 ">
           <ul className="hidden md:flex space-x-5 relative ">
             {

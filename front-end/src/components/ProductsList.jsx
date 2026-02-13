@@ -1,5 +1,6 @@
 // front-endvite/src/components/ProductsList.jsx 
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function ProductsList() {
   const products = useSelector((state) => state.product.products);
@@ -16,32 +17,44 @@ export default function ProductsList() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
-        {products && products.map((product) => {
-          const discountPrice =
-            product.price - (product.price * product.discount) / 100;
+       {products.map((product) => {
+  const discountPrice =
+    product.price - (product.price * product.discount) / 100;
 
-          return (
-            <div key={product._id} className="border p-3 rounded">
-              <img
-                src={product.images?.[0]}
-                alt={product.title}
-                className="w-full h-60 object-cover"
-              />
+  return (
+    <Link
+      key={product._id}
+      to={`/productOverview/${product._id}`}
+    >
+      <div className="border p-3 rounded hover:shadow-lg transition">
+        <img
+          src={product.images?.[0]}
+          alt={product.title}
+          className="w-full h-60 object-cover"
+        />
 
-              <h3 className="mt-2 font-semibold">{product.title}</h3>
-              <p className="text-gray-600 text-sm">
-                {product.details?.slice(0, 25)}...
-              </p>
+        <h3 className="mt-2 font-semibold">{product.title}</h3>
 
-              <p className="text-sm">Colors: {product.colors?.length}</p>
+        <p className="text-gray-600 text-sm">
+          {product.details?.slice(0, 25)}...
+        </p>
 
-              <p className="font-semibold">₹{discountPrice}</p>
-              <p className="line-through text-gray-500">
-                ₹{product.price}
-              </p>
-            </div>
-          );
-        })}
+        <p className="text-sm">
+          Colors: {product.colors?.length}
+        </p>
+
+        <p className="font-semibold">₹{discountPrice}</p>
+
+        {product.discount > 0 && (
+          <p className="line-through text-gray-500">
+            ₹{product.price}
+          </p>
+        )}
+      </div>
+    </Link>
+  );
+})}
+
       </div>
     </div>
   );
