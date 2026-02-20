@@ -76,8 +76,8 @@ function ProductOverview({ id }) {
           </div>
 
           {/* Colors */}
-          <p className="text-lg mb-1 font-Oswald">Colors</p>
-          <div className="colors flex">
+          <p className=" text-lg mb-1 font-Oswald">Colors</p>
+          <div className="colors flex  my-4">
             {selectedProduct.colors?.map((color, idx) => (
               <button
                 key={idx}
@@ -135,7 +135,7 @@ function ProductOverview({ id }) {
             >
               <span className="font-Oswald text-lg">Delivery-Return</span>
               <FaChevronDown
-                className={`transition-transform duration-300 ${opentab.delivery ? "rotate-180" : ""}`}
+                className={`transition-transform duration-300 ${opentab.delivery ? "-rotate-180" : ""}`}
               />
             </div>
 
@@ -161,7 +161,7 @@ function ProductOverview({ id }) {
             >
               <span className="font-Oswald text-lg">Product Information</span>
               <FaChevronDown
-                className={`transition-transform duration-300 ${opentab.product ? "rotate-180" : ""}`}
+                className={`transition-transform duration-300 ${opentab.product ? "-rotate-180" : ""}`}
               />
             </div>
 

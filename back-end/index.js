@@ -7,17 +7,18 @@ const ProductRouter = require('./router/Product')
 const ColorRouter = require('./router/Color')
 const CategoryRouter = require('./router/Category')
 const SizeRouter = require('./router/Size')
-
-
+const userRouter = require('./router/userrouter')
+const cookieParser = require('cookie-parser')
 // Middleware
 const cors = require("cors");
 // app.use(cors());
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "http://localhost:5173",
+  credentials:true
 }));
 /* “Backend allows requests only from the Vite frontend.” */
 app.use(express.json());
-
+app.use(cookieParser())
 // MongoDB connection
 mongoose.connect('mongodb://127.0.0.1:27017/nikeClone')
   .then(() => {
@@ -41,6 +42,8 @@ app.use('/products',ProductRouter)
 app.use('/colors',ColorRouter)
 app.use('/categories',CategoryRouter)
 app.use('/sizes',SizeRouter)
+app.use('/user',userRouter)
+
 // app.listen(PORT, () => {
 //       console.log(`Server running on port ${PORT}`);
 //     });

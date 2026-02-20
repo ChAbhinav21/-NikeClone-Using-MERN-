@@ -120,7 +120,7 @@ function Navbar() {
                         </h1>
 
                         {item.dropdown.map((opt, i) => (
-                          <li key={i}>
+                          <li className="cursor-pointer" key={i}>
                             <a
                               href={opt.link || "#"}
                               className="block text-xs text-gray-600 hover:text-black transition-colors"
@@ -150,7 +150,7 @@ function Navbar() {
         <div className="second bg-white px-5 md:px-12 flex justify-between items-center py-2">
         <Link to={`/home`}>
         <div className="nikelogo">
-          <a> <img src={nikeLogo} alt=""  className="bg-transparent w-10" /> </a>
+            <img src={nikeLogo} alt=""  className="bg-transparent w-10" /> 
         </div>
          </Link>
         <div className="desktop-features my-4 ">
