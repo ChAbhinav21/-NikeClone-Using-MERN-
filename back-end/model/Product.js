@@ -8,7 +8,7 @@ const ProductSchema = new Schema({
     size: { type: [String], required: true },
     colors: { type: [Schema.Types.Mixed], required: true },
     category: { type: String, required: true },
-    gender: String,
+    gender: {type:String},
     kids: {type: String},
     stock: { type: Number, min: 0, default: 0 },
     rating: { type: Number, min: 0, max: 5 },

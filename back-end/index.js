@@ -3,12 +3,15 @@ const mongoose = require('mongoose');
 
 const app = express();
 const PORT = 8080;
+
+const cookieParser = require('cookie-parser')
+const {currentUserExist} = require('./middlewares/Mauth')
+
 const ProductRouter = require('./router/Product')
 const ColorRouter = require('./router/Color')
 const CategoryRouter = require('./router/Category')
 const SizeRouter = require('./router/Size')
 const userRouter = require('./router/userrouter')
-const cookieParser = require('cookie-parser')
 // Middleware
 const cors = require("cors");
 // app.use(cors());
@@ -38,7 +41,7 @@ app.get('/', (req, res) => {
   res.send('Hi, I am back');
 });
 
-app.use('/products',ProductRouter)
+app.use('/products',currentUserExist,ProductRouter)
 app.use('/colors',ColorRouter)
 app.use('/categories',CategoryRouter)
 app.use('/sizes',SizeRouter)

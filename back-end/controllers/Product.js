@@ -22,8 +22,11 @@ const createProduct = async (req, res) => {
 
 const fetchProducts = async (req, res) => {
     try {
+
         let query = Product.find({});
         console.log(req.query)
+       console.log("REQ QUERY:", req.query);
+
  if(req.query.colors){
     query = query.find({colors:{$elemMatch:{name:{$in:req.query.colors.split(",") }}}})  
 }
@@ -31,7 +34,9 @@ if(req.query.kids){
     query = query.find({kids:{$in:req.query.kids.split(",")}})
 }
 if(req.query.gender){
-    query = query.find({gender:{$in:req.query.gender.split(",")}})
+      query = query.find({
+      gender: { $in: req.query.gender.split(",") },
+    });
 }
 if(req.query.category){ 
     query = query.find({category:{$in:req.query.category.split(",")}})

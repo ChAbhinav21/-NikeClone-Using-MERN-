@@ -1,7 +1,6 @@
-import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/landingpage/Footer';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate ,useLocation} from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import logo from '../assets/favicon.ico';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +10,9 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const logginError = useSelector(selectLogginError);
-
+ 
+  const location = useLocation()
+  const from = location.state?.from || "/home"
   const {
     register,
     handleSubmit,
@@ -23,7 +24,7 @@ const LoginPage = () => {
   };
 
   // Redirect if already logged in
-  if (currentUser) return <Navigate to="/home" replace />;
+  if (currentUser) return <Navigate to={from} replace />;
 
   return (
     <>

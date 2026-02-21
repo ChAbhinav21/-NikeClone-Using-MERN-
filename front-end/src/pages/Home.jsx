@@ -102,8 +102,8 @@ export default function Home() {
       id: 'gender',
       name: 'Gender',
       options: [
-        { label: 'Mens', value: 'Mens' },
-        { label: 'Womens', value: 'Womens' },
+        { label: 'Men', value: 'Men' },
+        { label: 'Women', value: 'Women' },
         { label: 'UniSex', value: 'UniSex' },
 
       ]

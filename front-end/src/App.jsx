@@ -26,7 +26,7 @@ function App() {
 
   const router = createBrowserRouter([
     { path: '/', element: <LandingpPage /> },
-    { path: '/home', element: <ProtectedRoute>
+    { path: '/home', element: <ProtectedRoute >
         <Home />
       </ProtectedRoute>
  },
