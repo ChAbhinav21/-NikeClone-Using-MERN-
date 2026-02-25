@@ -1,110 +1,171 @@
-# 🏀 Nike Clone – MERN Stack
+🏀 Nike Clone – MERN Stack
 
-A full-stack Nike e-commerce clone built using the **MERN stack**, focusing on modern UI, responsive design, and scalable backend architecture.
+A full-stack e-commerce web application inspired by Nike, built using the MERN stack.
+This project focuses on clean UI, responsive layouts, scalable backend architecture, and real-world full-stack development practices.
 
----
+👩‍💻 Tech Stack
+Frontend
 
-## 🚀 Tech Stack
+React.js
 
-### Frontend
-- React.js
-- Tailwind CSS
-- Redux (State Management)
-- Responsive Design (Mobile + Desktop)
+Tailwind CSS
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT Authentication
+Redux Toolkit (State Management)
 
----
+React Router
 
-## ✨ Features
+Fully Responsive (Mobile + Tablet + Desktop)
 
-- Nike-style modern UI
-- Responsive Navbar with dropdowns
-- Mobile slide-in sidebar
-- Product listing & categories
-- User authentication (Login / Register)
-- Cart & wishlist UI
-- Clean component-based architecture
+Backend
 
----
+Node.js
 
-## 📁 Project Structure
- 📦back-end
- ┣ 📜 ...server code 
- 📦front-end
- ┣ 📜 ...React UI code
- 📄Products.json
- 📄Categories.json
- 📄Sizes.json
- 📄Colors.json
+Express.js
 
+MongoDB + Mongoose
 
-Data JSON files contain product & attribute details used on the frontend. :contentReference[oaicite:4]{index=4}
+JWT Authentication
 
----
+REST API Architecture
 
-## 🛠 Features (In Progress)
+✨ Features
+🎨 Frontend
 
-✔️ Product data modeling  
-✔️ Category & size data  
-✔️ Basic UI for product browsing  
-⚙️ Cart management (coming soon)  
-⚙️ Authentication (signup/login)  
-⚙️ Order & checkout flow  
-⚙️ Payment Integration
+Modern Nike-style product UI
 
-*(More features will be added with progressive updates)*
+Responsive Navbar with animated dropdowns
 
----
+Mobile slide-in sidebar
 
-## 📌 How to Run Locally
+Product listing, filters & categories
 
-### 🔹 Prerequisites
+Product detail pages
+
+Wishlist UI
+
+Add-to-Cart UI
+
+Global state management (Redux)
+
+🧠 Backend
+
+REST APIs
+
+MongoDB product & category models
+
+User authentication (Login / Register)
+
+Protected routes with JWT
+
+Async/await based controllers
+
+Error handling middleware
+
+📦 Full-Stack
+
+Fetching products from MongoDB
+
+Clean folder structure
+
+Scalable code architecture
+
+Ready for admin features (future updates)
+
+📁 Project Structure
+📦 root
+├── 📦 back-end
+│   ├── controllers/
+│   ├── middlewares
+│   ├── service/
+│   ├── models/
+│   ├── routes/
+│   
+│
+├── 📦 front-end
+│   ├── src/
+|   |   ├──app/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── features/
+│   │   └── utils/
+│
+├── 📄 Products.json
+├── 📄 Categories.json
+├── 📄 Sizes.json
+└── 📄 Colors.json
+
+📌 JSON Files
+
+These files store initial static product and attribute data.
+In future updates, all products can be fully migrated to MongoDB.
+
+🛠 Features (In Progress / Upcoming)
+
+✔️ Product data modeling
+
+✔️ Category & size data
+
+✔️ product browsing UI
+
+🔧 Cart management (in progress)
+
+🔧 Authentication (signup/login)
+
+🔧 Order & checkout flow
+
+🔧 Payment Integration
+
+🔧 Admin dashboard for adding new products
+
+More features will be added continuously.
+
+📌 How to Run Locally
+🔹 Prerequisites
 
 Make sure you have installed:
 
-- Node.js & npm
-- MongoDB (Atlas or local instance)
+Node.js & npm
 
----
+MongoDB (Atlas or Local)
 
-### 🟢 Backend Setup
+🟢 Backend Setup
 
-```bash
-cd back-end
-npm install
-npm run dev
- 
-Create a .env file with:
+  cd back-end
+  npm install
+  npm run dev
+Create a .env file:
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 
-PORT=<port>
-MONGO_URI=<your_mongo_connection_string>
-
-### 🟢 end Frontend Setup
+🟢 Frontend Setup
 cd front-end
 npm install
 npm run dev
 
-🛠 How To Contribute
+API Example (Backend)
+// Get all products
+router.get("/products", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+});
 
-⭐ Fork the repo
-
-🔀 Create a feature branch
-
-📝 Make changes
-
-📤 Push & create a Pull Request
-
-Contributions are welcome! 🚀
+Fetch Example (Frontend) 
+const fetchProducts = async () => {
+  const res = await fetch("http://localhost:8000/api/products");
+  const data = await res.json();
+  setProducts(data);
+};
 
 📄 License
 
-This project is for educational purposes and does not include any Nike branding rights.
+This project is for educational purposes only.
+It does not include any official branding rights of Nike.
+
 ⭐ Acknowledgements
 
-This README template was inspired by best practices for clear documentation and MERN e-commerce project examples.
-
+This README follows best practices from top MERN e-commerce open-source projects and clean documentation templates.
